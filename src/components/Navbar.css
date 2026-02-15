@@ -65,15 +65,19 @@
 
   .nav-buttons {
     position: absolute;
-    top: 90px;
+    top: 90px; /* same as navbar height */
     left: 0;
     width: 100%;
     background: #0a3d62;
+
     flex-direction: column;
     align-items: center;
-    padding: 20px 0;
     gap: 15px;
+    padding: 20px 0;
+
     display: none;
+    z-index: 999; /* below navbar */
+    box-shadow: 0 8px 15px rgba(0,0,0,0.2);
   }
 
   .nav-buttons.active {
@@ -83,5 +87,6 @@
   .nav-buttons button {
     width: 80%;
     font-size: 18px;
+    padding: 10px 0;
   }
 }

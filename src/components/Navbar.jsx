@@ -6,18 +6,21 @@ function Navbar({ isAdmin, onLoginClick, onLogoutClick }) {
 
   const [menuOpen, setMenuOpen] = useState(false);
 
-  // ✅ Clean scroll function
   const scrollToSection = (id) => {
-    const section = document.getElementById(id);
+    // Close menu first
+    setMenuOpen(false);
 
-    if (section) {
-      section.scrollIntoView({
-        behavior: "smooth",
-        block: "start"
-      });
-    }
+    // Wait for menu to close before scrolling
+    setTimeout(() => {
+      const section = document.getElementById(id);
 
-    setMenuOpen(false); // close mobile menu after click
+      if (section) {
+        section.scrollIntoView({
+          behavior: "smooth",
+          block: "start"
+        });
+      }
+    }, 150); // small delay
   };
 
   return (
@@ -58,8 +61,8 @@ function Navbar({ isAdmin, onLoginClick, onLogoutClick }) {
         {!isAdmin ? (
           <button
             onClick={() => {
-              onLoginClick();
               setMenuOpen(false);
+              setTimeout(() => onLoginClick(), 150);
             }}
           >
             Admin Login
@@ -67,8 +70,8 @@ function Navbar({ isAdmin, onLoginClick, onLogoutClick }) {
         ) : (
           <button
             onClick={() => {
-              onLogoutClick();
               setMenuOpen(false);
+              setTimeout(() => onLogoutClick(), 150);
             }}
           >
             Logout
