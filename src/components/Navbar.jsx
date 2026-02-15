@@ -8,10 +8,21 @@ function Navbar({ isAdmin, onLoginClick, onLogoutClick }) {
 
   const scrollToSection = (id) => {
     const section = document.getElementById(id);
+
     if (section) {
-      section.scrollIntoView({ behavior: "smooth" });
+      const navbarHeight = 90; // same as your navbar height
+      const sectionPosition =
+        section.getBoundingClientRect().top +
+        window.pageYOffset -
+        navbarHeight;
+
+      window.scrollTo({
+        top: sectionPosition,
+        behavior: "smooth"
+      });
     }
-    setMenuOpen(false); // ✅ CLOSE MENU AFTER CLICK
+
+    setMenuOpen(false); // close menu after click
   };
 
   return (
@@ -23,7 +34,10 @@ function Navbar({ isAdmin, onLoginClick, onLogoutClick }) {
       </div>
 
       {/* HAMBURGER */}
-      <div className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>
+      <div
+        className="hamburger"
+        onClick={() => setMenuOpen(!menuOpen)}
+      >
         ☰
       </div>
 
@@ -35,17 +49,21 @@ function Navbar({ isAdmin, onLoginClick, onLogoutClick }) {
         <button onClick={() => scrollToSection("appointment")}>Appointment</button>
 
         {!isAdmin ? (
-          <button onClick={() => {
-            onLoginClick();
-            setMenuOpen(false);  // ✅ close
-          }}>
+          <button
+            onClick={() => {
+              onLoginClick();
+              setMenuOpen(false);
+            }}
+          >
             Admin Login
           </button>
         ) : (
-          <button onClick={() => {
-            onLogoutClick();
-            setMenuOpen(false);  // ✅ close
-          }}>
+          <button
+            onClick={() => {
+              onLogoutClick();
+              setMenuOpen(false);
+            }}
+          >
             Logout
           </button>
         )}

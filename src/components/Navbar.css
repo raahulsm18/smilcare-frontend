@@ -1,3 +1,4 @@
+/* ---------------- NAVBAR ---------------- */
 .navbar {
   position: fixed;
   top: 0;
@@ -11,14 +12,19 @@
   z-index: 1000;
 }
 
-/* LOGO */
+/* Prevent sections from hiding behind fixed navbar */
+section {
+  scroll-margin-top: 90px;
+}
+
+/* ---------------- LOGO ---------------- */
 .logo img {
   height: 80px;
   width: auto;
   cursor: pointer;
 }
 
-/* DESKTOP BUTTONS */
+/* ---------------- DESKTOP BUTTONS ---------------- */
 .nav-buttons {
   display: flex;
   gap: 20px;
@@ -37,7 +43,7 @@
   text-decoration: underline;
 }
 
-/* 🔥 HAMBURGER (hidden on desktop) */
+/* ---------------- HAMBURGER ---------------- */
 .hamburger {
   display: none;
   font-size: 28px;
@@ -80,5 +86,6 @@
   .nav-buttons button {
     width: 80%;
     font-size: 18px;
+    padding: 10px 0;
   }
 }
