@@ -255,3 +255,14 @@ body { -ms-overflow-style: none; }
   object-fit: contain;
   cursor: pointer;
 }
+html {
+  scroll-behavior: smooth;
+}
+
+/* Fix scroll position because navbar is fixed */
+#home,
+#about,
+#services,
+#appointment {
+  scroll-margin-top: 100px;
+}

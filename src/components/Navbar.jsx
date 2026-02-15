@@ -10,19 +10,13 @@ function Navbar({ isAdmin, onLoginClick, onLogoutClick }) {
     const section = document.getElementById(id);
 
     if (section) {
-      const navbarHeight = 90; // same as your navbar height
-      const sectionPosition =
-        section.getBoundingClientRect().top +
-        window.pageYOffset -
-        navbarHeight;
-
-      window.scrollTo({
-        top: sectionPosition,
-        behavior: "smooth"
+      section.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
       });
     }
 
-    setMenuOpen(false); // close menu after click
+    setMenuOpen(false); // close mobile menu after click
   };
 
   return (
@@ -30,7 +24,7 @@ function Navbar({ isAdmin, onLoginClick, onLogoutClick }) {
 
       {/* LOGO */}
       <div className="logo" onClick={() => scrollToSection("home")}>
-        <img src={logo} alt="Gaviranga Logo" className="logo-img" />
+        <img src={logo} alt="Gaviranga Logo" />
       </div>
 
       {/* HAMBURGER */}
