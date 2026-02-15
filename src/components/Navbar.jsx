@@ -10,8 +10,8 @@ function Navbar({ isAdmin, onLoginClick, onLogoutClick }) {
     const section = document.getElementById(id);
     if (section) {
       section.scrollIntoView({ behavior: "smooth" });
-      setMenuOpen(false); // close menu after click (mobile)
     }
+    setMenuOpen(false); // ✅ CLOSE MENU AFTER CLICK
   };
 
   return (
@@ -19,18 +19,11 @@ function Navbar({ isAdmin, onLoginClick, onLogoutClick }) {
 
       {/* LOGO */}
       <div className="logo" onClick={() => scrollToSection("home")}>
-        <img
-          src={logo}
-          alt="Gaviranga Logo"
-          className="logo-img"
-        />
+        <img src={logo} alt="Gaviranga Logo" className="logo-img" />
       </div>
 
-      {/* HAMBURGER ICON */}
-      <div 
-        className="hamburger"
-        onClick={() => setMenuOpen(!menuOpen)}
-      >
+      {/* HAMBURGER */}
+      <div className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>
         ☰
       </div>
 
@@ -44,14 +37,14 @@ function Navbar({ isAdmin, onLoginClick, onLogoutClick }) {
         {!isAdmin ? (
           <button onClick={() => {
             onLoginClick();
-            setMenuOpen(false);
+            setMenuOpen(false);  // ✅ close
           }}>
             Admin Login
           </button>
         ) : (
           <button onClick={() => {
             onLogoutClick();
-            setMenuOpen(false);
+            setMenuOpen(false);  // ✅ close
           }}>
             Logout
           </button>
