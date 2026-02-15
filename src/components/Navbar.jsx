@@ -6,25 +6,18 @@ function Navbar({ isAdmin, onLoginClick, onLogoutClick }) {
 
   const [menuOpen, setMenuOpen] = useState(false);
 
+  // ✅ Clean scroll function
   const scrollToSection = (id) => {
     const section = document.getElementById(id);
-    const navbar = document.querySelector(".navbar");
 
-    if (section && navbar) {
-      const navbarHeight = navbar.offsetHeight;
-
-      const sectionPosition =
-        section.getBoundingClientRect().top +
-        window.pageYOffset -
-        navbarHeight;
-
-      window.scrollTo({
-        top: sectionPosition,
-        behavior: "smooth"
+    if (section) {
+      section.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
       });
     }
 
-    setMenuOpen(false);
+    setMenuOpen(false); // close mobile menu after click
   };
 
   return (
@@ -45,10 +38,22 @@ function Navbar({ isAdmin, onLoginClick, onLogoutClick }) {
 
       {/* NAV BUTTONS */}
       <div className={`nav-buttons ${menuOpen ? "active" : ""}`}>
-        <button onClick={() => scrollToSection("home")}>Home</button>
-        <button onClick={() => scrollToSection("about")}>About Us</button>
-        <button onClick={() => scrollToSection("services")}>Services</button>
-        <button onClick={() => scrollToSection("appointment")}>Appointment</button>
+
+        <button onClick={() => scrollToSection("home")}>
+          Home
+        </button>
+
+        <button onClick={() => scrollToSection("about")}>
+          About Us
+        </button>
+
+        <button onClick={() => scrollToSection("services")}>
+          Services
+        </button>
+
+        <button onClick={() => scrollToSection("appointment")}>
+          Appointment
+        </button>
 
         {!isAdmin ? (
           <button
@@ -69,6 +74,7 @@ function Navbar({ isAdmin, onLoginClick, onLogoutClick }) {
             Logout
           </button>
         )}
+
       </div>
 
     </div>

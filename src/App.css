@@ -38,15 +38,14 @@ body { -ms-overflow-style: none; }
   z-index: 1000;
 }
 
-.logo a {
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-  letter-spacing: 1px;
+.logo img {
+  height: 55px;
+  width: auto;
+  object-fit: contain;
+  cursor: pointer;
 }
 
-.navbar button,
-.navbar .nav-link {
+.navbar button {
   background: none;
   border: none;
   color: white;
@@ -60,9 +59,10 @@ body { -ms-overflow-style: none; }
    FIX FOR FIXED NAVBAR + SCROLL
    ========================= */
 #home,
+#about,
 #services,
 #appointment {
-  scroll-margin-top: 80px;
+  scroll-margin-top: 80px; /* slightly bigger than 70px navbar */
 }
 
 
@@ -70,8 +70,8 @@ body { -ms-overflow-style: none; }
    HOME (HERO)
    ========================= */
 .hero {
-  min-height: calc(100vh - 70px);
-  margin-top: 70px;
+  min-height: 100vh;
+  padding-top: 70px;  /* instead of margin-top */
 
   background: #e6f6f9;
 
@@ -81,7 +81,8 @@ body { -ms-overflow-style: none; }
   align-items: center;
 
   text-align: center;
-  padding: 40px 20px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .hero h1 {
@@ -95,11 +96,6 @@ body { -ms-overflow-style: none; }
   margin-bottom: 40px;
   color: #333;
 }
-
-/* 🔥 IMPORTANT:
-   Removed ALL old .info-card styles
-   InfoCards.css will handle cards
-*/
 
 
 /* =========================
@@ -115,7 +111,6 @@ body { -ms-overflow-style: none; }
   align-items: center;
 }
 
-/* GRID – exactly 3 per row */
 .services-grid {
   width: 100%;
   max-width: 1200px;
@@ -203,8 +198,8 @@ body { -ms-overflow-style: none; }
    LOGIN
    ========================= */
 .login-page {
-  min-height: calc(100vh - 70px);
-  margin-top: 70px;
+  min-height: 100vh;
+  padding-top: 70px;
 
   display: flex;
   justify-content: center;
@@ -248,21 +243,4 @@ body { -ms-overflow-style: none; }
     height: auto;
   }
 
-}
-.logo img {
-  height: 55px;
-  width: auto;
-  object-fit: contain;
-  cursor: pointer;
-}
-html {
-  scroll-behavior: smooth;
-}
-
-/* Fix scroll position because navbar is fixed */
-#home,
-#about,
-#services,
-#appointment {
-  scroll-margin-top: 100px;
 }
