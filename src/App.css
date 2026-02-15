@@ -1,0 +1,257 @@
+/* =========================
+   GLOBAL
+   ========================= */
+html, body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  height: 100%;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+}
+
+/* Hide scrollbar */
+::-webkit-scrollbar {
+  width: 0;
+  background: transparent;
+}
+html { scrollbar-width: none; }
+body { -ms-overflow-style: none; }
+
+
+/* =========================
+   NAVBAR
+   ========================= */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 70px;
+  background: #0a3d62;
+  color: white;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 0 40px;
+  box-sizing: border-box;
+  z-index: 1000;
+}
+
+.logo a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.navbar button,
+.navbar .nav-link {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  margin-left: 20px;
+}
+
+
+/* =========================
+   FIX FOR FIXED NAVBAR + SCROLL
+   ========================= */
+#home,
+#services,
+#appointment {
+  scroll-margin-top: 80px;
+}
+
+
+/* =========================
+   HOME (HERO)
+   ========================= */
+.hero {
+  min-height: calc(100vh - 70px);
+  margin-top: 70px;
+
+  background: #e6f6f9;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.hero h1 {
+  font-size: 36px;
+  color: #0a3d62;
+  margin-bottom: 8px;
+}
+
+.hero p {
+  font-size: 18px;
+  margin-bottom: 40px;
+  color: #333;
+}
+
+/* 🔥 IMPORTANT:
+   Removed ALL old .info-card styles
+   InfoCards.css will handle cards
+*/
+
+
+/* =========================
+   SERVICES
+   ========================= */
+.services {
+  min-height: 100vh;
+  padding: 80px 20px;
+  background: #ffffff;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* GRID – exactly 3 per row */
+.services-grid {
+  width: 100%;
+  max-width: 1200px;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+.service-card {
+  background: #f5faff;
+  border-radius: 14px;
+  padding: 16px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  height: 260px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+}
+
+.service-card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.service-card p {
+  margin-top: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #0a3d62;
+  text-align: center;
+}
+
+.services-heading {
+  margin-top: 45px;
+  font-size: 32px;
+  color: #0a3d62;
+  text-align: center;
+}
+
+
+/* =========================
+   APPOINTMENT
+   ========================= */
+.appointment {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 80px 20px;
+  background-color: #f5f7fa;
+}
+
+.appointment-container {
+  background: #ffffff;
+  padding: 40px;
+
+  width: 100%;
+  max-width: 400px;
+
+  border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+
+  text-align: center;
+}
+
+.appointment-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.appointment-form input,
+.appointment-form button {
+  padding: 12px;
+  font-size: 16px;
+}
+
+
+/* =========================
+   LOGIN
+   ========================= */
+.login-page {
+  min-height: calc(100vh - 70px);
+  margin-top: 70px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-box {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  text-align: center;
+}
+
+
+/* =========================
+   FOOTER
+   ========================= */
+.footer {
+  background: #0a3d62;
+  color: white;
+  text-align: center;
+  padding: 30px 20px;
+}
+
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+@media (max-width: 768px) {
+
+  .hero h1 {
+    font-size: 26px;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .service-card {
+    height: auto;
+  }
+
+}
+.logo img {
+  height: 55px;
+  width: auto;
+  object-fit: contain;
+  cursor: pointer;
+}
