@@ -8,15 +8,23 @@ function Navbar({ isAdmin, onLoginClick, onLogoutClick }) {
 
   const scrollToSection = (id) => {
     const section = document.getElementById(id);
+    const navbar = document.querySelector(".navbar");
 
-    if (section) {
-      section.scrollIntoView({
-        behavior: "smooth",
-        block: "start"
+    if (section && navbar) {
+      const navbarHeight = navbar.offsetHeight;
+
+      const sectionPosition =
+        section.getBoundingClientRect().top +
+        window.pageYOffset -
+        navbarHeight;
+
+      window.scrollTo({
+        top: sectionPosition,
+        behavior: "smooth"
       });
     }
 
-    setMenuOpen(false); // close mobile menu after click
+    setMenuOpen(false);
   };
 
   return (
